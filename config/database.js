@@ -32,18 +32,16 @@ let ArticleSchema = mongoose.Schema({
 let Article = mongoose.model("Article", ArticleSchema);
 
 
-// User's schema
-let UserSchema = mongoose.Schema({
+// Admin's schema
+let AdminSchema = mongoose.Schema({
   email: String,
   password: String,
   pseudo: String
 });
-
-
-let User  = mongoose.model("User", UserSchema);
+let Admin  = mongoose.model("Admin", AdminSchema);
 
 bcrypt.hash("merci", 1, (err, result) =>{
-let admin  = new User({
+let admin  = new Admin({
   email: "admin@admin.fr",
   password: result,
    pseudo: "toto"
@@ -53,4 +51,12 @@ let admin  = new User({
 admin.save();
 })
 
-export {Article, User};
+// User Schema
+let UserSchema = mongoose.Schema({
+  email: String,
+  password: String,
+  pseudo: String
+});
+let User  = mongoose.model("User", UserSchema);
+
+export {Article, Admin, User};

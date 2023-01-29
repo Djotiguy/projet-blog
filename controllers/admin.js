@@ -1,6 +1,6 @@
 import {Article} from "../config/database.js";
 import formidable from "formidable";
-import fs from "fs"
+import fs from "fs";
 
 export const Admin = (req,res) => {
 

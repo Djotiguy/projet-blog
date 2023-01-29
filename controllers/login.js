@@ -1,4 +1,4 @@
-import { User } from "../config/database.js";
+import { Admin } from "../config/database.js";
 import bcrypt from "bcrypt"
 
 
@@ -10,7 +10,7 @@ export const Login = (req, res) =>{
 export const LoginSubmit = (req, res) =>{
 
     // On va vérifier si l'utilisateur avec cet email existe en BDD ou pas
-    User.findOne({email: req.body.email}, (err, admin) =>{
+    Admin.findOne({email: req.body.email}, (err, admin) =>{
         console.log(admin);
         // Si il existe
         if(admin){
